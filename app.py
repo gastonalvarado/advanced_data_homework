@@ -119,9 +119,9 @@ def trip1(start,end):
     trip_data_max= session.query(func.max(Measurement.tobs)).filter(Measurement.date >= start).filter(Measurement.date <= end).all()
     
     keydict={}
-    keydict["TMIN"] = trip_data_min[0]
-    keydict["TAVG"] = trip_data_avg[0]
-    keydict["TMAX"] = trip_data_max[0]
+    keydict["TMIN"] = trip_data_min[0][0]
+    keydict["TAVG"] = trip_data_avg[0][0]
+    keydict["TMAX"] = trip_data_max[0][0]
    
    
     return jsonify(keydict)
@@ -139,9 +139,9 @@ def trip2(start):
     trip_data_max= session.query(func.max(Measurement.tobs)).filter(Measurement.date >= start_date).all()
     
     keydict={}
-    keydict["TMIN"] = trip_data_min[0]
-    keydict["TAVG"] = trip_data_avg[0]
-    keydict["TMAX"] = trip_data_max[0]
+    keydict["TMIN"] = trip_data_min[0][0]
+    keydict["TAVG"] = trip_data_avg[0][0]
+    keydict["TMAX"] = trip_data_max[0][0]
     
     return jsonify(keydict)
 
